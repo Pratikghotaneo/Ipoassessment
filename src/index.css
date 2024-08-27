@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-default;
+}
+@media (max-width: 600px) {
+  .clamp {
+    max-height: calc(1.2em * 5); 
+    overflow: hidden;
+  }
+}
+
+
+/* Stepper.css */
+
+.stepper {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  flex: 1;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.step-line {
+  position: absolute;
+  background-color: #ddd;
+  z-index: 0;
+}
+
+.step-line.filled {
+  background-color: #4caf50;
+}
+
+.step.active .step-number {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.step-label {
+  margin-left: 15px; 
+}
+
+@media (min-width: 769px) {
+  .step {
+    flex-direction: column;
+  }
+
+  .step-line {
+    top: 18%;
+    left: calc(50% + 15px); 
+    width: calc(100% - 30px); 
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  .step-line:last-of-type {
+    width: calc(50% - 15px);
+  }
+
+  .step-label {
+    margin-top: 25px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .stepper {
+    flex-direction: column;
+    align-items: flex-start; 
+  }
+  .step {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .step-line {
+    left: 8%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(100% + 20px); 
+    top: 50%;
+  }
+
+  .step-line:first-of-type {
+    top: 15px; 
+  }
+
+  .step-line:last-of-type {
+    height: calc(100% - 15px);
+  }
+
+  .step-label {
+    margin-left: 20px; 
+  }
+}
